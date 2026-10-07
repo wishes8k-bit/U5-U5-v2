@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://bcoalu7vwno4f"]
+
+[ext_resource type="PackedScene" uid="uid://5go8hntsh1if" path="res://scenes/player.tscn" id="1_o5qli"]
+[ext_resource type="Texture2D" uid="uid://cwaokfe7ox7hn" path="res://assets/Images/Hallway halloween spill.png" id="2_0wfyh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i2oeh"]
+size = Vector2(13, 21.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_um3tm"]
+size = Vector2(43.308266, 234.58217)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vyitp"]
+size = Vector2(48.251053, 234.72511)
+
+[node name="Main" type="Node2D" unique_id=485839716]
+
+[node name="Player" parent="." unique_id=436749682 instance=ExtResource("1_o5qli")]
+position = Vector2(627, 315)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=833562258]
+position = Vector2(-0.5, -2.125)
+shape = SubResource("RectangleShape2D_i2oeh")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2084207126]
+z_index = -1
+position = Vector2(598.4687, 135)
+scale = Vector2(10.156018, 6.995213)
+texture = ExtResource("2_0wfyh")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D" unique_id=699375176]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/StaticBody2D" unique_id=1016624941]
+position = Vector2(-46.184196, 0.22679138)
+shape = SubResource("RectangleShape2D_um3tm")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Sprite2D/StaticBody2D" unique_id=1885975728]
+position = Vector2(43.021408, -0.2735443)
+shape = SubResource("RectangleShape2D_vyitp")
