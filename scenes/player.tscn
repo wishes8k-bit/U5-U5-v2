@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://udnhh57jy5wv" path="res://assets/Images/Player/Player.png" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://crx36cnhvfao5" path="res://Scripts/player.gd" id="1_g2els"]
+[ext_resource type="PackedScene" uid="uid://bcaeuebw6s4yw" path="res://scenes/shake_camera_2d.tscn" id="3_qhqgy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g2els"]
 atlas = ExtResource("1_3vyb7")
@@ -396,4 +397,4 @@ sprite_frames = SubResource("SpriteFrames_nhmne")
 animation = &"run_up"
 frame_progress = 0.48170155
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=314647561]
+[node name="ShakeCamera2D" parent="." unique_id=1836965024 instance=ExtResource("3_qhqgy")]

@@ -7,11 +7,18 @@ var last_direction: Vector2 = Vector2.RIGHT
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
+@onready var camera: Camera2D = $ShakeCamera2D
+
+var frozen := false
+
 func _physics_process(delta: float) -> void:
-	process_movement()
-	move_and_slide()
 
 func process_movement() -> void:
+	if frozen:
+		velocity = Vector2.ZERO
+		process_animation(last_direction)
+		return
+	
 	var direction := Input.get_vector("left", "right", "up", "down")
 	
 	if direction != Vector2.ZERO:
@@ -39,4 +46,13 @@ func play_animation(prefix: String, dir: Vector2) -> void:
 		animated_sprite_2d.play(prefix + "_up")
 	elif dir.y > 0:
 		animated_sprite_2d.play(prefix + "_down")
+		
+		
+func freeze(duration: float = 1.0) -> void:
+	frozen = true
+	await get_tree().create_timer(duration).timeout
+	frozen = false
+
+		
+
 	
