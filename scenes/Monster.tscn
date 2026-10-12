@@ -223,7 +223,7 @@ script = ExtResource("38_2mm00")
 position = Vector2(0, -2.5)
 sprite_frames = SubResource("SpriteFrames_nhmne")
 animation = &"run_up"
-frame_progress = 0.53062695
+frame_progress = 0.5225644
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1013415879]
 visible = false
