@@ -209,11 +209,16 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_nhmne"]
-size = Vector2(28.75, 39.5)
+[sub_resource type="GDScript" id="GDScript_gp7d8"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_nhmne"]
-radius = 75.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_j356s"]
+radius = 104.5
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0nujy"]
+radius = 26.504717
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i2oeh"]
+size = Vector2(28, 33)
 
 [node name="Monster" type="CharacterBody2D" unique_id=436749682]
 scale = Vector2(4, 4)
@@ -225,17 +230,25 @@ sprite_frames = SubResource("SpriteFrames_nhmne")
 animation = &"run_up"
 frame_progress = 0.5225644
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1013415879]
-visible = false
-position = Vector2(-1.375, -0.75)
-shape = SubResource("RectangleShape2D_nhmne")
-
 [node name="DetectionArea" type="Area2D" parent="." unique_id=27030386]
-visible = false
+position = Vector2(19.5, 40.5)
+script = SubResource("GDScript_gp7d8")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea" unique_id=1288708355]
-visible = false
-shape = SubResource("CircleShape2D_nhmne")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea" unique_id=1633866179]
+position = Vector2(-21.75, -19)
+shape = SubResource("CircleShape2D_j356s")
+
+[node name="HitboxArea" type="Area2D" parent="." unique_id=156287071]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxArea" unique_id=622089624]
+position = Vector2(-3.5, -1)
+shape = SubResource("CircleShape2D_0nujy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2041979923]
+position = Vector2(-4.75, 0.25)
+shape = SubResource("RectangleShape2D_i2oeh")
 
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]
+[connection signal="body_entered" from="HitboxArea" to="." method="_on_hitbox_area_body_entered"]
+[connection signal="body_exited" from="HitboxArea" to="." method="_on_hitbox_area_body_exited"]

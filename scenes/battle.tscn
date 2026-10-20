@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bx0tdpkjhwgkw"]
+
+[ext_resource type="Texture2D" uid="uid://bs2dxcixxi0tk" path="res://assets/Images/Enviroment/Flesh-fight-1.webp" id="1_dn72j"]
+
+[node name="Battle" type="Node2D" unique_id=1287735071]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=423263628]
+position = Vector2(577.00006, 341.25)
+scale = Vector2(1.0537038, 0.81030303)
+texture = ExtResource("1_dn72j")

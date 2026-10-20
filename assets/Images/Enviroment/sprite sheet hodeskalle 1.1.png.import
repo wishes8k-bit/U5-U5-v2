@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cwaokfe7ox7hn"
-path="res://.godot/imported/Hallway halloween spill.png-95ea8e2274d8c05d1e2b2d0355ca571c.ctex"
+uid="uid://df12cdix6n0g1"
+path="res://.godot/imported/sprite sheet hodeskalle 1.1.png-ebf6e4d68b375af809b28cd87e9825db.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Images/Hallway halloween spill.png"
-dest_files=["res://.godot/imported/Hallway halloween spill.png-95ea8e2274d8c05d1e2b2d0355ca571c.ctex"]
+source_file="res://assets/Images/Enviroment/sprite sheet hodeskalle 1.1.png"
+dest_files=["res://.godot/imported/sprite sheet hodeskalle 1.1.png-ebf6e4d68b375af809b28cd87e9825db.ctex"]
 
 [params]
 

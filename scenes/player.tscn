@@ -396,13 +396,21 @@ animations = [{
 "speed": 12.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nhmne"]
+size = Vector2(13.75, 27.75)
+
 [node name="Player" type="CharacterBody2D" unique_id=436749682]
 scale = Vector2(4, 4)
 script = ExtResource("1_g2els")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1622251263]
+position = Vector2(1.25, 0.75)
 sprite_frames = SubResource("SpriteFrames_nhmne")
 animation = &"run_up"
-frame_progress = 0.6283895
+frame_progress = 0.7585031
 
 [node name="ShakeCamera2D" parent="." unique_id=1836965024 instance=ExtResource("3_qhqgy")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1903694515]
+position = Vector2(0.625, 1.125)
+shape = SubResource("RectangleShape2D_nhmne")

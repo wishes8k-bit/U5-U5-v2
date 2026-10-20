@@ -19,6 +19,7 @@ func _on_detection_area_body_entered(body):
 	player_chase = true	
 
 
+
 func _on_detection_area_body_exited(body):
 	player = null
 	player_chase = false
@@ -31,8 +32,8 @@ func play_animation(prefix: String, dir: Vector2) -> void:
 		animated_sprite_2d.play(prefix + "_up")
 	elif dir.y > 0:
 		animated_sprite_2d.play(prefix + "_down")
-		
-	
-	
-	
-	
+
+
+func _on_hitbox_area_body_entered(body: Node2D) -> void:
+	if body.is_in_group("player"):
+		SceneTransition.change_scene("res://scenes/battle.tscn")

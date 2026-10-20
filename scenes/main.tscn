@@ -1,80 +1,90 @@
 [gd_scene format=3 uid="uid://bcoalu7vwno4f"]
 
 [ext_resource type="PackedScene" uid="uid://5go8hntsh1if" path="res://scenes/player.tscn" id="1_o5qli"]
-[ext_resource type="Texture2D" uid="uid://cwaokfe7ox7hn" path="res://assets/Images/Hallway halloween spill.png" id="2_0wfyh"]
+[ext_resource type="Script" uid="uid://j7wh2nf1nxwn" path="res://Scripts/main.gd" id="1_o6xl0"]
+[ext_resource type="Texture2D" uid="uid://b1wp2gs1iadlt" path="res://assets/Images/Enviroment/base lvl.png" id="3_o6xl0"]
 [ext_resource type="Script" uid="uid://dq3ybb3y5y40" path="res://Scripts/shaketrigger.gd" id="3_sugp2"]
 [ext_resource type="Script" uid="uid://byf4uvl8cfrsb" path="res://Scripts/shaketrigger2.gd" id="4_jyhfs"]
 [ext_resource type="Script" uid="uid://dc58rterl0jbs" path="res://Scripts/shaketrigger3.gd" id="5_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://b2rb8deosp1k8" path="res://scenes/Monster.tscn" id="6_tefeu"]
 
-[sub_resource type="GDScript" id="GDScript_0wfyh"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_i2oeh"]
-size = Vector2(13, 21.75)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nhmne"]
+size = Vector2(663, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_um3tm"]
-size = Vector2(44.30549, 234.58217)
+size = Vector2(46.66862, 237.37308)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vyitp"]
-size = Vector2(49.029602, 234.72511)
+size = Vector2(46.469543, 236.94421)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0nujy"]
-size = Vector2(134.06436, 20)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_nhmne"]
-size = Vector2(428, 20)
+size = Vector2(135.19077, 20)
 
 [node name="Main" type="Node2D" unique_id=485839716]
-script = SubResource("GDScript_0wfyh")
+script = ExtResource("1_o6xl0")
 
-[node name="Player" parent="." unique_id=436749682 instance=ExtResource("1_o5qli")]
+[node name="Player" parent="." unique_id=436749682 groups=["player"] instance=ExtResource("1_o5qli")]
+visible = false
 position = Vector2(627, 315)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=833562258]
-position = Vector2(-0.5, -2.125)
-shape = SubResource("RectangleShape2D_i2oeh")
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2084207126]
+[node name="Hallway" type="Sprite2D" parent="." unique_id=2084207126]
 z_index = -1
-position = Vector2(600, -197)
-scale = Vector2(10.156018, 6.995213)
-texture = ExtResource("2_0wfyh")
+position = Vector2(603, -599.9779)
+scale = Vector2(13.025492, 10.683517)
+texture = ExtResource("3_o6xl0")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D" unique_id=699375176]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/StaticBody2D" unique_id=1016624941]
-position = Vector2(-45.685593, 0.22679138)
-shape = SubResource("RectangleShape2D_um3tm")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Sprite2D/StaticBody2D" unique_id=1885975728]
-position = Vector2(42.632137, -0.2735443)
-shape = SubResource("RectangleShape2D_vyitp")
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Sprite2D/StaticBody2D" unique_id=1851126786]
-position = Vector2(0.021652222, 127.65873)
-shape = SubResource("RectangleShape2D_0nujy")
-
-[node name="Shaketrigger" type="Area2D" parent="." unique_id=122161404]
-script = ExtResource("3_sugp2")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Shaketrigger" unique_id=628770530]
-position = Vector2(574, 171)
-shape = SubResource("RectangleShape2D_nhmne")
-
-[node name="Shaketrigger2" type="Area2D" parent="." unique_id=2009768312]
-script = ExtResource("4_jyhfs")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Shaketrigger2" unique_id=175398917]
-position = Vector2(573, -439)
-shape = SubResource("RectangleShape2D_nhmne")
-
-[node name="Shaketrigger3" type="Area2D" parent="." unique_id=1497397905]
-position = Vector2(410, -45)
+[node name="Shaketrigger3" type="Area2D" parent="Hallway" unique_id=1497397905]
+visible = false
+position = Vector2(-13.105688, 58.617332)
+scale = Vector2(0.06270662, 0.088948905)
 script = ExtResource("5_tbgi4")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Shaketrigger3" unique_id=1577403321]
-position = Vector2(162, -948)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hallway/Shaketrigger3" unique_id=1577403321]
+position = Vector2(205, -1252)
 shape = SubResource("RectangleShape2D_nhmne")
 
+[node name="Shaketrigger2" type="Area2D" parent="Hallway" unique_id=2009768312]
+visible = false
+position = Vector2(-38.815403, 62.620033)
+scale = Vector2(0.06270662, 0.088948905)
+script = ExtResource("4_jyhfs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hallway/Shaketrigger2" unique_id=175398917]
+position = Vector2(619, -497)
+shape = SubResource("RectangleShape2D_nhmne")
+
+[node name="Shaketrigger" type="Area2D" parent="Hallway" unique_id=122161404]
+visible = false
+position = Vector2(-38.815403, 62.620033)
+scale = Vector2(0.06270662, 0.088948905)
+script = ExtResource("3_sugp2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hallway/Shaketrigger" unique_id=628770530]
+position = Vector2(610, -32)
+shape = SubResource("RectangleShape2D_nhmne")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Hallway" unique_id=699375176]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hallway/StaticBody2D" unique_id=1016624941]
+visible = false
+position = Vector2(-44.504036, -1.1686668)
+scale = Vector2(1, 1.0000001)
+shape = SubResource("RectangleShape2D_um3tm")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Hallway/StaticBody2D" unique_id=1885975728]
+visible = false
+position = Vector2(43.163105, -1.1047579)
+scale = Vector2(1, 1.0000002)
+shape = SubResource("RectangleShape2D_vyitp")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Hallway/StaticBody2D" unique_id=1851126786]
+visible = false
+position = Vector2(-0.5415497, 127.65875)
+scale = Vector2(1, 1.0000001)
+shape = SubResource("RectangleShape2D_0nujy")
+
 [node name="Monster" parent="." unique_id=682194069 instance=ExtResource("6_tefeu")]
-position = Vector2(571, -879)
+visible = false
+position = Vector2(607, -1752)
+speed = 50
