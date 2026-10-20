@@ -215,7 +215,7 @@ animations = [{
 radius = 104.5
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0nujy"]
-radius = 26.504717
+radius = 21.762928
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i2oeh"]
 size = Vector2(28, 33)
@@ -227,8 +227,7 @@ script = ExtResource("38_2mm00")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1622251263]
 position = Vector2(0, -2.5)
 sprite_frames = SubResource("SpriteFrames_nhmne")
-animation = &"run_up"
-frame_progress = 0.5225644
+animation = &"idle_up"
 
 [node name="DetectionArea" type="Area2D" parent="." unique_id=27030386]
 position = Vector2(19.5, 40.5)
@@ -241,11 +240,11 @@ shape = SubResource("CircleShape2D_j356s")
 [node name="HitboxArea" type="Area2D" parent="." unique_id=156287071]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxArea" unique_id=622089624]
-position = Vector2(-3.5, -1)
+position = Vector2(-6.5, -0.75)
 shape = SubResource("CircleShape2D_0nujy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2041979923]
-position = Vector2(-4.75, 0.25)
+position = Vector2(-6, -0.5)
 shape = SubResource("RectangleShape2D_i2oeh")
 
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]

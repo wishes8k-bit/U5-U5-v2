@@ -1,7 +1,7 @@
 extends Area2D
 
 @export var intensity: float = 8.0
-@export var duration: float = 0.4 
+@export var duration: float = 0.8 
 @export var one_shot: bool = true
 
 
@@ -18,7 +18,7 @@ func _on_body_entered(body: Node2D) -> void:
 			cam.screen_shake(intensity, duration)
 			
 			if body.has_method("freeze"):
-				body.freeze(0.4)
+				body.freeze(0.8)
 			
 			if one_shot:
 				set_deferred("monitoring", false)

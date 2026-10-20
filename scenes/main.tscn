@@ -24,7 +24,6 @@ size = Vector2(135.19077, 20)
 script = ExtResource("1_o6xl0")
 
 [node name="Player" parent="." unique_id=436749682 groups=["player"] instance=ExtResource("1_o5qli")]
-visible = false
 position = Vector2(627, 315)
 
 [node name="Hallway" type="Sprite2D" parent="." unique_id=2084207126]
@@ -85,6 +84,5 @@ scale = Vector2(1, 1.0000001)
 shape = SubResource("RectangleShape2D_0nujy")
 
 [node name="Monster" parent="." unique_id=682194069 instance=ExtResource("6_tefeu")]
-visible = false
 position = Vector2(607, -1752)
-speed = 50
+speed = 75
