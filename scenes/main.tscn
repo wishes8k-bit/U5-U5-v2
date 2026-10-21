@@ -2,11 +2,22 @@
 
 [ext_resource type="PackedScene" uid="uid://5go8hntsh1if" path="res://scenes/player.tscn" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://j7wh2nf1nxwn" path="res://Scripts/main.gd" id="1_o6xl0"]
-[ext_resource type="Texture2D" uid="uid://b1wp2gs1iadlt" path="res://assets/Images/Enviroment/base lvl.png" id="3_o6xl0"]
+[ext_resource type="Texture2D" uid="uid://b6ll5dn22dc84" path="res://assets/Images/Enviroment/base lvlll.png" id="3_o6xl0"]
 [ext_resource type="Script" uid="uid://dq3ybb3y5y40" path="res://Scripts/shaketrigger.gd" id="3_sugp2"]
 [ext_resource type="Script" uid="uid://byf4uvl8cfrsb" path="res://Scripts/shaketrigger2.gd" id="4_jyhfs"]
 [ext_resource type="Script" uid="uid://dc58rterl0jbs" path="res://Scripts/shaketrigger3.gd" id="5_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://b2rb8deosp1k8" path="res://scenes/Monster.tscn" id="6_tefeu"]
+
+[sub_resource type="Gradient" id="Gradient_o6xl0"]
+offsets = PackedFloat32Array(0, 0.48584905)
+colors = PackedColorArray(0.23031491, 0.23031494, 0.23031494, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_0nujy"]
+gradient = SubResource("Gradient_o6xl0")
+width = 200
+height = 150
+fill = 1
+fill_from = Vector2(0.4882353, 0.5441176)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nhmne"]
 size = Vector2(663, 20)
@@ -25,15 +36,20 @@ script = ExtResource("1_o6xl0")
 
 [node name="Player" parent="." unique_id=436749682 groups=["player"] instance=ExtResource("1_o5qli")]
 position = Vector2(627, 315)
+scale = Vector2(5, 5)
+
+[node name="PointLight2D" type="PointLight2D" parent="Player" unique_id=126820929]
+energy = 2.57
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_0nujy")
 
 [node name="Hallway" type="Sprite2D" parent="." unique_id=2084207126]
 z_index = -1
-position = Vector2(603, -599.9779)
-scale = Vector2(13.025492, 10.683517)
+position = Vector2(630, -1553)
+scale = Vector2(12.125925, 18.395401)
 texture = ExtResource("3_o6xl0")
 
 [node name="Shaketrigger3" type="Area2D" parent="Hallway" unique_id=1497397905]
-visible = false
 position = Vector2(-13.105688, 58.617332)
 scale = Vector2(0.06270662, 0.088948905)
 script = ExtResource("5_tbgi4")
@@ -43,7 +59,6 @@ position = Vector2(205, -1252)
 shape = SubResource("RectangleShape2D_nhmne")
 
 [node name="Shaketrigger2" type="Area2D" parent="Hallway" unique_id=2009768312]
-visible = false
 position = Vector2(-38.815403, 62.620033)
 scale = Vector2(0.06270662, 0.088948905)
 script = ExtResource("4_jyhfs")
@@ -53,7 +68,6 @@ position = Vector2(619, -497)
 shape = SubResource("RectangleShape2D_nhmne")
 
 [node name="Shaketrigger" type="Area2D" parent="Hallway" unique_id=122161404]
-visible = false
 position = Vector2(-38.815403, 62.620033)
 scale = Vector2(0.06270662, 0.088948905)
 script = ExtResource("3_sugp2")
@@ -84,5 +98,9 @@ scale = Vector2(1, 1.0000001)
 shape = SubResource("RectangleShape2D_0nujy")
 
 [node name="Monster" parent="." unique_id=682194069 instance=ExtResource("6_tefeu")]
-position = Vector2(607, -1752)
-speed = 75
+position = Vector2(642, -4014)
+scale = Vector2(14, 14)
+speed = 50
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=900350757]
+color = Color(0.07082722, 0.07082721, 0.07082722, 1)

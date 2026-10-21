@@ -1,10 +1,163 @@
 [gd_scene format=3 uid="uid://bx0tdpkjhwgkw"]
 
-[ext_resource type="Texture2D" uid="uid://bs2dxcixxi0tk" path="res://assets/Images/Enviroment/Flesh-fight-1.webp" id="1_dn72j"]
+[ext_resource type="Script" uid="uid://dyo4ij8teclr7" path="res://Scripts/battle.gd" id="1_p1qf1"]
+[ext_resource type="Texture2D" uid="uid://dc17t1ebantnd" path="res://assets/Images/Enviroment/Boss/Boss rom v2.png" id="1_th188"]
+[ext_resource type="Texture2D" uid="uid://csj5i86t6ulrx" path="res://assets/Images/Monster/Monster hit/0001.png" id="3_djc8l"]
+[ext_resource type="Texture2D" uid="uid://cg4qik47tpqal" path="res://assets/Images/Monster/Monster hit/0002.png" id="4_h4dll"]
+[ext_resource type="Texture2D" uid="uid://y1pw82riy3xo" path="res://assets/Images/Monster/Monster hit/0003.png" id="5_p0caf"]
+[ext_resource type="Texture2D" uid="uid://ciu5segq615d1" path="res://assets/Images/Monster/Monster hit/0004.png" id="6_61i1y"]
+[ext_resource type="Texture2D" uid="uid://4iqkbncdjoq3" path="res://assets/Images/Monster/Monster hit/0005.png" id="7_saiin"]
+[ext_resource type="Texture2D" uid="uid://875k7sboilws" path="res://assets/Images/Monster/Monster hit/0006.png" id="8_dd63g"]
+[ext_resource type="Texture2D" uid="uid://bp8g0scqcqi1i" path="res://assets/Images/Monster/Monster hit/0007.png" id="9_fpf3k"]
+[ext_resource type="Texture2D" uid="uid://kkmja4vnuf3j" path="res://assets/Images/Monster/Monster hit/0008.png" id="10_bi5l8"]
+[ext_resource type="Texture2D" uid="uid://bo31r4rk0rv7h" path="res://assets/Images/Monster/Monster hit/0009.png" id="11_jt4d8"]
+[ext_resource type="Texture2D" uid="uid://cawt0hats2suj" path="res://assets/Images/Monster/Monster hit/0010.png" id="12_kl6ie"]
+[ext_resource type="Texture2D" uid="uid://beasj7te4svqi" path="res://assets/Images/Monster/Monster hit/0011.png" id="13_1m01a"]
+[ext_resource type="Texture2D" uid="uid://bp4cj27mua5i6" path="res://assets/Images/Monster/Monster hit/0012.png" id="14_lv4so"]
+[ext_resource type="Texture2D" uid="uid://qf5x7k2s2wvh" path="res://assets/Images/Monster/Monster hit/0013.png" id="15_eivww"]
+[ext_resource type="Texture2D" uid="uid://blcp5uw84cijq" path="res://assets/Images/Monster/Monster hit/0014.png" id="16_rwtbh"]
+[ext_resource type="Texture2D" uid="uid://fm3bvbvvl7jp" path="res://assets/Images/Monster/Monster hit/0015.png" id="17_f0g0v"]
+[ext_resource type="Texture2D" uid="uid://bt1wgv186c5ta" path="res://assets/Images/Player/student.png" id="18_h4dll"]
+[ext_resource type="PackedScene" uid="uid://cf5p0gav0lo8m" path="res://scenes/CommandButton.tscn" id="19_p0caf"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nhmne"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_djc8l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_h4dll")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_p0caf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_61i1y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_saiin")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_dd63g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_fpf3k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_bi5l8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_jt4d8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_kl6ie")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_1m01a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_lv4so")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_eivww")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_rwtbh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_f0g0v")
+}],
+"loop": 1,
+"name": &"monster_hit",
+"speed": 8.0
+}, {
+"frames": [],
+"loop": 1,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p0caf"]
+atlas = ExtResource("18_h4dll")
+region = Rect2(24, 108, 24, 36)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0nujy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p0caf")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}]
 
 [node name="Battle" type="Node2D" unique_id=1287735071]
+script = ExtResource("1_p1qf1")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=423263628]
-position = Vector2(577.00006, 341.25)
-scale = Vector2(1.0537038, 0.81030303)
-texture = ExtResource("1_dn72j")
+position = Vector2(578.5, 319.57608)
+scale = Vector2(4.8723407, 4.7618346)
+texture = ExtResource("1_th188")
+
+[node name="battle_monster" type="AnimatedSprite2D" parent="." unique_id=1885936024]
+z_index = 9
+position = Vector2(629.00006, 229)
+scale = Vector2(7.9983335, 7.9983335)
+sprite_frames = SubResource("SpriteFrames_nhmne")
+animation = &"monster_hit"
+
+[node name="battle_player" type="AnimatedSprite2D" parent="." unique_id=949228348]
+position = Vector2(478, 508)
+scale = Vector2(5.343749, 5.343749)
+sprite_frames = SubResource("SpriteFrames_0nujy")
+animation = &"idle"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=395619707]
+
+[node name="Commandmenu" type="Control" parent="CanvasLayer" unique_id=2023223458]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Commandmenu" unique_id=883802332]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="MainCommands" type="VBoxContainer" parent="CanvasLayer/Commandmenu/MarginContainer" unique_id=2074023982]
+layout_mode = 2
+
+[node name="AttackButton" parent="CanvasLayer/Commandmenu/MarginContainer/MainCommands" unique_id=95243490 instance=ExtResource("19_p0caf")]
+layout_mode = 2
+
+[node name="Skills" parent="CanvasLayer/Commandmenu/MarginContainer/MainCommands" unique_id=1664220229 instance=ExtResource("19_p0caf")]
+layout_mode = 2
+text = "Skills
+
+"
+
+[node name="Guard" parent="CanvasLayer/Commandmenu/MarginContainer/MainCommands" unique_id=1096690072 instance=ExtResource("19_p0caf")]
+layout_mode = 2
+text = "Guard
+
+
+"
+
+[node name="Run" parent="CanvasLayer/Commandmenu/MarginContainer/MainCommands" unique_id=626051151 instance=ExtResource("19_p0caf")]
+layout_mode = 2
+text = "Run
+
+"

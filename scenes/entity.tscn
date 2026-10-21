@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://blnarml0qx1hk"]
+
+[ext_resource type="Texture2D" uid="uid://cnv2sewh6htdf" path="res://assets/Images/Monster/run down/0001.png" id="1_0oii0"]
+[ext_resource type="Texture2D" uid="uid://sjd4s7pkw6lm" path="res://assets/Images/Monster/run down/0002.png" id="2_by054"]
+[ext_resource type="Texture2D" uid="uid://bn5l7qgs877gc" path="res://assets/Images/Monster/run down/0003.png" id="3_bdlbk"]
+[ext_resource type="Texture2D" uid="uid://cyicqkkp21r1n" path="res://assets/Images/Monster/run down/0004.png" id="4_uysrf"]
+[ext_resource type="Texture2D" uid="uid://xkgwtptvor8j" path="res://assets/Images/Monster/run down/0005.png" id="5_wjc7b"]
+[ext_resource type="Texture2D" uid="uid://b6n7ytus6t5sj" path="res://assets/Images/Monster/run down/0006.png" id="6_5a52v"]
+[ext_resource type="Texture2D" uid="uid://clb8w1b6km6t3" path="res://assets/Images/Monster/run down/0007.png" id="7_bbxnf"]
+[ext_resource type="Texture2D" uid="uid://bb8v1wbu0i4m2" path="res://assets/Images/Monster/run down/0008.png" id="8_kvvk8"]
+[ext_resource type="Texture2D" uid="uid://dmk343s6438xt" path="res://assets/Images/Monster/run down/0009.png" id="9_8nksq"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nhmne"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_0oii0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_by054")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_bdlbk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_uysrf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_wjc7b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_5a52v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_bbxnf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_kvvk8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_8nksq")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Entity" type="Control" unique_id=1906173933]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AttackNode" type="Node" parent="." unique_id=208801358]
+
+[node name="HealthNode" type="Node" parent="." unique_id=1644229602]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=734217868]
+position = Vector2(-19, 41)
+scale = Vector2(8.45122, 8.45122)
+sprite_frames = SubResource("SpriteFrames_nhmne")

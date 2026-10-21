@@ -92,7 +92,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"run_down",
-"speed": 10.0
+"speed": 20.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -212,22 +212,23 @@ animations = [{
 [sub_resource type="GDScript" id="GDScript_gp7d8"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_j356s"]
-radius = 104.5
+radius = 80.22555
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0nujy"]
-radius = 21.762928
+radius = 12.666667
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i2oeh"]
-size = Vector2(28, 33)
+size = Vector2(27.416668, 22.833334)
 
 [node name="Monster" type="CharacterBody2D" unique_id=436749682]
-scale = Vector2(4, 4)
+scale = Vector2(12, 12)
 script = ExtResource("38_2mm00")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1622251263]
 position = Vector2(0, -2.5)
 sprite_frames = SubResource("SpriteFrames_nhmne")
-animation = &"idle_up"
+animation = &"run_down"
+frame_progress = 0.9790301
 
 [node name="DetectionArea" type="Area2D" parent="." unique_id=27030386]
 position = Vector2(19.5, 40.5)
@@ -240,11 +241,11 @@ shape = SubResource("CircleShape2D_j356s")
 [node name="HitboxArea" type="Area2D" parent="." unique_id=156287071]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxArea" unique_id=622089624]
-position = Vector2(-6.5, -0.75)
+position = Vector2(0.08333337, -4.3333335)
 shape = SubResource("CircleShape2D_0nujy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2041979923]
-position = Vector2(-6, -0.5)
+position = Vector2(0.54166687, -3.5)
 shape = SubResource("RectangleShape2D_i2oeh")
 
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]

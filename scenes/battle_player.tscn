@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://ceftjjq2ncqcv"]
+
+[ext_resource type="Texture2D" uid="uid://bt1wgv186c5ta" path="res://assets/Images/Player/student.png" id="1_d7rp0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d7rp0"]
+atlas = ExtResource("1_d7rp0")
+region = Rect2(24, 108, 24, 36)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0nujy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d7rp0")
+}],
+"loop": 1,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1456211698]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=247210510]
+position = Vector2(4.999999, -2.9999971)
+scale = Vector2(5.4166665, 5.4166665)
+sprite_frames = SubResource("SpriteFrames_0nujy")
+animation = &"Idle"
