@@ -7,8 +7,8 @@ var player_name := ""  # spilleren rom 1 sendte over
 func _ready() -> void:
 	client = ControlRoomClient.new("ws://172.31.0.200:7321", 5)
 	add_child(client)
-	#client.add_loading_screen()
-	client.player_incoming.connect(_on_player_incoming)
+	client.add_loading_screen()
+#	client.player_incoming.connect(_on_player_incoming)
 	client.player_left.connect(_on_player_left)
 	client.game_finish_wait.connect(_on_game_finish_wait)
 	client.game_finish_ok.connect(_on_game_finish_ok)

@@ -14,6 +14,7 @@ func _ready() -> void:
 func _on_body_entered(body: Node2D) -> void:
 	if body is CharacterBody2D:
 		var cam := body.get_node_or_null("ShakeCamera2D")
+		
 		if cam: 
 			cam.screen_shake(intensity, duration)
 			

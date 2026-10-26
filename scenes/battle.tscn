@@ -2,8 +2,12 @@
 
 [ext_resource type="Script" uid="uid://dyo4ij8teclr7" path="res://Scripts/battle.gd" id="1_p1qf1"]
 [ext_resource type="Texture2D" uid="uid://dc17t1ebantnd" path="res://assets/Images/Enviroment/Boss/Boss rom v2.png" id="1_th188"]
+[ext_resource type="Resource" uid="uid://w8g6s2ry5bqb" path="res://Resources/Attack.tres" id="2_fpf3k"]
+[ext_resource type="Script" uid="uid://oxmq1xdptpn0" path="res://Scripts/SkillResource.gd" id="3_bi5l8"]
 [ext_resource type="Texture2D" uid="uid://csj5i86t6ulrx" path="res://assets/Images/Monster/Monster hit/0001.png" id="3_djc8l"]
 [ext_resource type="Texture2D" uid="uid://cg4qik47tpqal" path="res://assets/Images/Monster/Monster hit/0002.png" id="4_h4dll"]
+[ext_resource type="Resource" uid="uid://brj2l00wa5j0i" path="res://Resources/slash.tres" id="4_jt4d8"]
+[ext_resource type="Resource" uid="uid://brl224mjt5lrr" path="res://Resources/heal.tres" id="5_bi5l8"]
 [ext_resource type="Texture2D" uid="uid://y1pw82riy3xo" path="res://assets/Images/Monster/Monster hit/0003.png" id="5_p0caf"]
 [ext_resource type="Texture2D" uid="uid://ciu5segq615d1" path="res://assets/Images/Monster/Monster hit/0004.png" id="6_61i1y"]
 [ext_resource type="Texture2D" uid="uid://4iqkbncdjoq3" path="res://assets/Images/Monster/Monster hit/0005.png" id="7_saiin"]
@@ -19,6 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://fm3bvbvvl7jp" path="res://assets/Images/Monster/Monster hit/0015.png" id="17_f0g0v"]
 [ext_resource type="Texture2D" uid="uid://bt1wgv186c5ta" path="res://assets/Images/Player/student.png" id="18_h4dll"]
 [ext_resource type="PackedScene" uid="uid://cf5p0gav0lo8m" path="res://scenes/CommandButton.tscn" id="19_p0caf"]
+[ext_resource type="AudioStream" uid="uid://ddqqstwy24jh4" path="res://assets/Audio/Horror Ambieance.wav" id="20_61i1y"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_nhmne"]
 animations = [{
@@ -93,8 +98,16 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hf1ir"]
+bg_color = Color(0.37413922, 0.37413928, 0.37413913, 1)
+
 [node name="Battle" type="Node2D" unique_id=1287735071]
 script = ExtResource("1_p1qf1")
+attack_skill = ExtResource("2_fpf3k")
+player_skills = Array[ExtResource("3_bi5l8")]([ExtResource("4_jt4d8"), ExtResource("5_bi5l8")])
+player_max_hp = 100
+monster_max_hp = 200
+run_chance = 0.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=423263628]
 position = Vector2(578.5, 319.57608)
@@ -142,22 +155,43 @@ layout_mode = 2
 
 [node name="AttackButton" parent="CanvasLayer/Commandmenu/MarginContainer/MainCommands" unique_id=95243490 instance=ExtResource("19_p0caf")]
 layout_mode = 2
+text = "Angrep"
 
 [node name="Skills" parent="CanvasLayer/Commandmenu/MarginContainer/MainCommands" unique_id=1664220229 instance=ExtResource("19_p0caf")]
 layout_mode = 2
-text = "Skills
+text = "Evner
 
 "
 
 [node name="Guard" parent="CanvasLayer/Commandmenu/MarginContainer/MainCommands" unique_id=1096690072 instance=ExtResource("19_p0caf")]
 layout_mode = 2
-text = "Guard
+text = "Vokt
 
 
 "
 
 [node name="Run" parent="CanvasLayer/Commandmenu/MarginContainer/MainCommands" unique_id=626051151 instance=ExtResource("19_p0caf")]
 layout_mode = 2
-text = "Run
-
+text = "Løp
 "
+
+[node name="HPLabel" type="Label" parent="CanvasLayer" unique_id=1656869196]
+offset_left = 420.0
+offset_top = 399.0
+offset_right = 535.0
+offset_bottom = 426.0
+
+[node name="MessageLabel" type="Label" parent="CanvasLayer" unique_id=2098755921]
+offset_left = 642.0
+offset_top = 493.0
+offset_right = 1061.0
+offset_bottom = 601.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_hf1ir")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1703426670]
+stream = ExtResource("20_61i1y")
+volume_db = 17.0
+autoplay = true
+max_distance = 10000.0

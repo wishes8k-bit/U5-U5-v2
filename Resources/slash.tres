@@ -1,7 +1,12 @@
 [gd_resource type="Resource" script_class="SkillResource" format=3 uid="uid://brj2l00wa5j0i"]
 
 [ext_resource type="Script" uid="uid://oxmq1xdptpn0" path="res://Scripts/SkillResource.gd" id="1_1wxlo"]
+[ext_resource type="AudioStream" uid="uid://cbl0kj58uspjx" path="res://assets/Audio/Slash Sound.wav" id="2_7elq2"]
 
 [resource]
 script = ExtResource("1_1wxlo")
 name = "slash"
+damage_min = 1
+damage_max = 20
+heal = 3
+sound = ExtResource("2_7elq2")

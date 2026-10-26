@@ -3,7 +3,7 @@ extends Area2D
 @export var intensity: float = 15.0
 @export var duration: float = 1.5 
 @export var one_shot: bool = true
-
+@onready var earthquake: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 
 # Called when the node enters the scene tree for the first time.
@@ -14,6 +14,7 @@ func _ready() -> void:
 func _on_body_entered(body: Node2D) -> void:
 	if body is CharacterBody2D:
 		var cam := body.get_node_or_null("ShakeCamera2D")
+		earthquake.play()
 		if cam: 
 			cam.screen_shake(intensity, duration)
 			

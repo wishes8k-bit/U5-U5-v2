@@ -1,14 +1,12 @@
 extends Resource
 class_name SkillResource
-
+ 
 @export var name: String
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+@export var damage_min: int = 0
+@export var damage_max: int = 0
+@export var heal: int = 0
+@export var sound: AudioStream
+ 
+ 
+func roll_damage() -> int:
+	return randi_range(damage_min, maxi(damage_min, damage_max))

@@ -3,6 +3,7 @@ extends Area2D
 @export var intensity: float = 25.0
 @export var duration: float = 2.0 
 @export var one_shot: bool = true
+@onready var monster_roar: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 
 
@@ -14,6 +15,7 @@ func _ready() -> void:
 func _on_body_entered(body: Node2D) -> void:
 	if body is CharacterBody2D:
 		var cam := body.get_node_or_null("ShakeCamera2D")
+		monster_roar.play()
 		if cam: 
 			cam.screen_shake(intensity, duration)
 			
@@ -22,6 +24,7 @@ func _on_body_entered(body: Node2D) -> void:
 				
 			if one_shot:
 				set_deferred("monitoring", false)
+			
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

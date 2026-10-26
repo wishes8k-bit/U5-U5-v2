@@ -5,8 +5,11 @@
 [ext_resource type="Texture2D" uid="uid://b6ll5dn22dc84" path="res://assets/Images/Enviroment/base lvlll.png" id="3_o6xl0"]
 [ext_resource type="Script" uid="uid://dq3ybb3y5y40" path="res://Scripts/shaketrigger.gd" id="3_sugp2"]
 [ext_resource type="Script" uid="uid://byf4uvl8cfrsb" path="res://Scripts/shaketrigger2.gd" id="4_jyhfs"]
+[ext_resource type="AudioStream" uid="uid://cwkb1mpwd4y4l" path="res://assets/Audio/Roar Sound Effect.wav" id="5_85g3d"]
 [ext_resource type="Script" uid="uid://dc58rterl0jbs" path="res://Scripts/shaketrigger3.gd" id="5_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://b2rb8deosp1k8" path="res://scenes/Monster.tscn" id="6_tefeu"]
+[ext_resource type="AudioStream" uid="uid://bywsng31pb768" path="res://assets/Audio/Earthquake.wav" id="7_choun"]
+[ext_resource type="AudioStream" uid="uid://c31l4yk0erqbu" path="res://assets/Audio/Ambience.mp3" id="8_tipki"]
 
 [sub_resource type="Gradient" id="Gradient_o6xl0"]
 offsets = PackedFloat32Array(0, 0.48584905)
@@ -58,6 +61,11 @@ script = ExtResource("5_tbgi4")
 position = Vector2(205, -1252)
 shape = SubResource("RectangleShape2D_nhmne")
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Hallway/Shaketrigger3" unique_id=1919067913]
+stream = ExtResource("5_85g3d")
+volume_db = 10.0
+max_distance = 10000.0
+
 [node name="Shaketrigger2" type="Area2D" parent="Hallway" unique_id=2009768312]
 position = Vector2(-38.815403, 62.620033)
 scale = Vector2(0.06270662, 0.088948905)
@@ -66,6 +74,11 @@ script = ExtResource("4_jyhfs")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hallway/Shaketrigger2" unique_id=175398917]
 position = Vector2(619, -497)
 shape = SubResource("RectangleShape2D_nhmne")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Hallway/Shaketrigger2" unique_id=48991975]
+stream = ExtResource("7_choun")
+volume_db = 10.0
+max_distance = 10000.0
 
 [node name="Shaketrigger" type="Area2D" parent="Hallway" unique_id=122161404]
 position = Vector2(-38.815403, 62.620033)
@@ -80,27 +93,29 @@ shape = SubResource("RectangleShape2D_nhmne")
 visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hallway/StaticBody2D" unique_id=1016624941]
-visible = false
 position = Vector2(-44.504036, -1.1686668)
 scale = Vector2(1, 1.0000001)
 shape = SubResource("RectangleShape2D_um3tm")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Hallway/StaticBody2D" unique_id=1885975728]
-visible = false
 position = Vector2(43.163105, -1.1047579)
 scale = Vector2(1, 1.0000002)
 shape = SubResource("RectangleShape2D_vyitp")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Hallway/StaticBody2D" unique_id=1851126786]
-visible = false
 position = Vector2(-0.5415497, 127.65875)
 scale = Vector2(1, 1.0000001)
 shape = SubResource("RectangleShape2D_0nujy")
 
 [node name="Monster" parent="." unique_id=682194069 instance=ExtResource("6_tefeu")]
-position = Vector2(642, -4014)
+position = Vector2(655, -4068.0002)
 scale = Vector2(14, 14)
 speed = 50
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=900350757]
 color = Color(0.07082722, 0.07082721, 0.07082722, 1)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1061442741]
+stream = ExtResource("8_tipki")
+volume_db = 24.0
+autoplay = true
