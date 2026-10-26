@@ -113,6 +113,7 @@ scale = Vector2(14, 14)
 speed = 50
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=900350757]
+visible = false
 color = Color(0.07082722, 0.07082721, 0.07082722, 1)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1061442741]
